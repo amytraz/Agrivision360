@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Upload, Leaf, Info, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { BlurImage } from '@/components/ui/blur-image';
 import { Separator } from '@/components/ui/separator';
 import Footer from '@/components/Footer';
@@ -83,22 +83,22 @@ const CropAnalytics = () => {
                     
                     <div className="mb-6">
                       <div className="flex items-center gap-4 mb-4">
-                        <Button 
-                          as="label" 
-                          htmlFor="crop-image" 
-                          variant="outline" 
-                          className="cursor-pointer"
-                        >
-                          <Upload className="mr-2 h-4 w-4" />
-                          Upload Image
-                          <input 
-                            id="crop-image" 
-                            type="file" 
-                            accept="image/*" 
-                            className="hidden" 
-                            onChange={handleImageUpload}
-                          />
-                        </Button>
+                        <div className="inline-block">
+                          <label 
+                            htmlFor="crop-image" 
+                            className={`${buttonVariants({ variant: "outline" })} cursor-pointer flex items-center gap-2`}
+                          >
+                            <Upload className="h-4 w-4" />
+                            Upload Image
+                            <input 
+                              id="crop-image" 
+                              type="file" 
+                              accept="image/*" 
+                              className="hidden" 
+                              onChange={handleImageUpload}
+                            />
+                          </label>
+                        </div>
                         
                         <Button 
                           onClick={analyzeImage} 
