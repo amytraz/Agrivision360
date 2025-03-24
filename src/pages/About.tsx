@@ -7,25 +7,25 @@ const teamMembers = [
   {
     id: 1,
     name: "Amit Raj Thakur",
-    role: "Founder & CEO",
+  
     imagePlaceholder: "AT"
   },
   {
     id: 2,
     name: "Samarth Mule",
-    role: "CTO",
+ 
     imagePlaceholder: "SM"
   },
   {
     id: 3,
     name: "Sahil Malekar",
-    role: "Head of Operations",
+   
     imagePlaceholder: "SM"
   },
   {
     id: 4,
     name: "Sitaram Patel",
-    role: "Lead Developer",
+
     imagePlaceholder: "SP"
   }
 ];
