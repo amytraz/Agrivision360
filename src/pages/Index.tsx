@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -31,10 +32,9 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navbar - Ensure it has the login/signup buttons */}
-      <Navbar onOpenAuthModal={handleOpenAuthModal} /> 
-
+    <div className="min-h-screen flex flex-col">
+      <Navbar onLoginClick={handleOpenAuthModal} />
+      
       <main className="flex-grow">
         <Hero onGetStartedClick={handleOpenAuthModal} />
         <Features />
@@ -58,10 +58,9 @@ const Index = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
-
-      {/* Auth Modal */}
+      
+     
+      
       <AuthModal 
         open={isAuthModalOpen} 
         setOpen={setIsAuthModalOpen} 
@@ -84,3 +83,4 @@ const Index = () => {
 };
 
 export default Index;
+
