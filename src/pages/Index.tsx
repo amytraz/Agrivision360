@@ -59,7 +59,7 @@ const Index = () => {
         </section>
       </main>
       
-     
+      <Footer />
       
       <AuthModal 
         open={isAuthModalOpen} 
@@ -83,4 +83,3 @@ const Index = () => {
 };
 
 export default Index;
-
