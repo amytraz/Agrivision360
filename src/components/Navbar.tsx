@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { 
@@ -12,6 +12,12 @@ import {
   DialogDescription
 } from '@/components/ui/dialog';
 import ContactForm from './ContactForm';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface NavbarProps {
   onLoginClick?: () => void;
@@ -38,6 +44,13 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
     setIsContactModalOpen(true);
   };
 
+  const featuresItems = [
+    { name: "Crop Analytics", path: "/crop-analytics" },
+    { name: "Weather Forecast", path: "/weather" },
+    { name: "Soil Analysis", path: "/#soil-analysis" },
+    { name: "Pest Detection", path: "/#pest-detection" },
+  ];
+
   return (
     <>
       <nav
@@ -59,9 +72,26 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <Link to="/#features" className="text-foreground/80 hover:text-primary transition-colors">
-              Features
+            <Link to="/" className="text-foreground/80 hover:text-primary transition-colors">
+              Home
             </Link>
+            
+            {/* Features Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-foreground/80 hover:text-primary transition-colors flex items-center gap-1 focus:outline-none">
+                Features <ChevronDown size={16} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="bg-background/95 backdrop-blur-sm border border-border/50">
+                {featuresItems.map((item) => (
+                  <DropdownMenuItem key={item.name} asChild>
+                    <Link to={item.path} className="cursor-pointer w-full">
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <Link to="/#marketplace" className="text-foreground/80 hover:text-primary transition-colors">
               Marketplace
             </Link>
@@ -113,12 +143,30 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
           <div className="container mx-auto px-4 py-4 bg-background/95 backdrop-blur-md border-t border-border/50">
             <div className="flex flex-col space-y-4">
               <Link
-                to="/#features"
+                to="/"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Features
+                Home
               </Link>
+              
+              {/* Mobile Features submenu */}
+              <div className="py-2">
+                <p className="text-foreground/80 hover:text-primary transition-colors mb-2">Features</p>
+                <div className="pl-4 flex flex-col space-y-2">
+                  {featuresItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className="py-1 text-foreground/80 hover:text-primary transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              
               <Link
                 to="/#marketplace"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
