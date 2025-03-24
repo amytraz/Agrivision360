@@ -18,6 +18,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 interface NavbarProps {
   onLoginClick?: () => void;
@@ -45,10 +50,10 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
   };
 
   const featuresItems = [
-    { name: "Crop Analytics", path: "/crop-analytics" },
-    { name: "Weather Forecast", path: "/weather" },
-    { name: "Soil Analysis", path: "/#soil-analysis" },
-    { name: "Pest Detection", path: "/#pest-detection" },
+    { name: "Crop Analytics", path: "/crop-analytics", description: "Get insights about your crops and optimize yield" },
+    { name: "Weather Forecast", path: "/weather", description: "Real-time weather updates and forecasts for farming" },
+    { name: "Soil Analysis", path: "/#soil-analysis", description: "Understand soil health and nutrient requirements" },
+    { name: "Pest Detection", path: "/#pest-detection", description: "Identify and manage pests affecting your crops" },
   ];
 
   return (
@@ -76,30 +81,48 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               Home
             </Link>
             
-            {/* Features Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-foreground/80 hover:text-primary transition-colors flex items-center gap-1 focus:outline-none">
-                Features <ChevronDown size={16} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="bg-background/95 backdrop-blur-sm border border-border/50">
-                {featuresItems.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link to={item.path} className="cursor-pointer w-full">
-                      {item.name}
+            {/* Features Dropdown with HoverCard for enhanced UI */}
+            <HoverCard openDelay={0} closeDelay={100}>
+              <HoverCardTrigger asChild>
+                <div className="relative group">
+                  <Link to="/crop-analytics" className="text-foreground/80 hover:text-primary transition-colors flex items-center gap-1">
+                    Features <ChevronDown className="h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
+                  </Link>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </div>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-80 p-0 bg-background/95 backdrop-blur-lg border border-border/50 shadow-lg">
+                <div className="grid gap-2 p-2">
+                  {featuresItems.map((item) => (
+                    <Link 
+                      key={item.name} 
+                      to={item.path}
+                      className="flex flex-col p-3 rounded-md hover:bg-accent transition-colors"
+                      onClick={() => {}}
+                    >
+                      <div className="font-medium text-foreground">{item.name}</div>
+                      <div className="text-sm text-muted-foreground">{item.description}</div>
                     </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  ))}
+                </div>
+              </HoverCardContent>
+            </HoverCard>
             
-            <Link to="/#marketplace" className="text-foreground/80 hover:text-primary transition-colors">
+            <Link to="/marketplace" className="text-foreground/80 hover:text-primary transition-colors relative group">
               Marketplace
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors">
+            <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors relative group">
               About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors" onClick={handleContactClick}>
+            <a 
+              href="#contact" 
+              className="text-foreground/80 hover:text-primary transition-colors relative group" 
+              onClick={handleContactClick}
+            >
               Contact
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
             </a>
           </div>
 
@@ -161,14 +184,15 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                       className="py-1 text-foreground/80 hover:text-primary transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {item.name}
+                      <div className="font-medium">{item.name}</div>
+                      <div className="text-xs text-muted-foreground">{item.description}</div>
                     </Link>
                   ))}
                 </div>
               </div>
               
               <Link
-                to="/#marketplace"
+                to="/marketplace"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
