@@ -15,11 +15,11 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface AuthModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
+const AuthModal = ({ open, setOpen }: AuthModalProps) => {
   const [activeTab, setActiveTab] = useState<string>('login');
   
   const handleTabChange = (value: string) => {
@@ -27,7 +27,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden rounded-2xl">
         <div className="relative w-full h-full">
           {/* Background with blur and gradient */}
@@ -38,7 +38,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                onClick={onClose}
+                onClick={() => setOpen(false)}
                 className="rounded-full h-8 w-8 text-foreground/70 hover:text-foreground"
               >
                 <X size={18} />
