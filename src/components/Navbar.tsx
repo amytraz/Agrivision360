@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Dialog,
   DialogContent,
@@ -13,7 +14,7 @@ import {
 import ContactForm from './ContactForm';
 
 interface NavbarProps {
-  onLoginClick: () => void;
+  onLoginClick?: () => void;
 }
 
 const Navbar = ({ onLoginClick }: NavbarProps) => {
@@ -48,46 +49,50 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <div className="size-10 rounded-full bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">A</span>
             </div>
             <span className="font-semibold text-xl tracking-tight">
               AgriVision <span className="text-primary">360</span>
             </span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-foreground/80 hover:text-primary transition-colors story-link">
+            <Link to="/#features" className="text-foreground/80 hover:text-primary transition-colors">
               Features
-            </a>
-            <a href="#marketplace" className="text-foreground/80 hover:text-primary transition-colors story-link">
+            </Link>
+            <Link to="/#marketplace" className="text-foreground/80 hover:text-primary transition-colors">
               Marketplace
-            </a>
-            <a href="#about" className="text-foreground/80 hover:text-primary transition-colors story-link">
+            </Link>
+            <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors">
               About
-            </a>
-            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors story-link" onClick={handleContactClick}>
+            </Link>
+            <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors" onClick={handleContactClick}>
               Contact
             </a>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onLoginClick}
-              className="rounded-full px-5"
-            >
-              Log In
-            </Button>
-            <Button
-              size="sm"
-              onClick={onLoginClick}
-              className="rounded-full px-5 bg-primary hover:bg-primary/90"
-            >
-              Sign Up
-            </Button>
+            {onLoginClick && (
+              <>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={onLoginClick}
+                  className="rounded-full px-5"
+                >
+                  Log In
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={onLoginClick}
+                  className="rounded-full px-5 bg-primary hover:bg-primary/90"
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
           </div>
 
           <button
@@ -107,27 +112,27 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         >
           <div className="container mx-auto px-4 py-4 bg-background/95 backdrop-blur-md border-t border-border/50">
             <div className="flex flex-col space-y-4">
-              <a
-                href="#features"
+              <Link
+                to="/#features"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Features
-              </a>
-              <a
-                href="#marketplace"
+              </Link>
+              <Link
+                to="/#marketplace"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Marketplace
-              </a>
-              <a
-                href="#about"
+              </Link>
+              <Link
+                to="/about"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About
-              </a>
+              </Link>
               <a
                 href="#contact"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
@@ -139,27 +144,29 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               >
                 Contact
               </a>
-              <div className="flex flex-col gap-2 pt-2 border-t border-border/50">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    onLoginClick();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="w-full justify-center"
-                >
-                  Log In
-                </Button>
-                <Button
-                  onClick={() => {
-                    onLoginClick();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="w-full justify-center bg-primary hover:bg-primary/90"
-                >
-                  Sign Up
-                </Button>
-              </div>
+              {onLoginClick && (
+                <div className="flex flex-col gap-2 pt-2 border-t border-border/50">
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      onLoginClick();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full justify-center"
+                  >
+                    Log In
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      onLoginClick();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full justify-center bg-primary hover:bg-primary/90"
+                  >
+                    Sign Up
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
