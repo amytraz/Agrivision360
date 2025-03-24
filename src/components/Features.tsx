@@ -9,7 +9,8 @@ import {
   ShoppingCart, 
   Activity, 
   MessageSquare, 
-  Bot 
+  Bot,
+  Wheat
 } from 'lucide-react';
 
 const Features = () => {
@@ -27,10 +28,17 @@ const Features = () => {
       url: "/crop-analytics"
     },
     {
-      icon: <BarChart className="h-10 w-10 text-sky-500" />,
-      title: "Market Insights",
-      description: "Track commodity prices, market trends, and demand forecasts to optimize your selling strategy.",
-      url: "/market-insights"
+      icon: <ShoppingCart className="h-10 w-10 text-earth-600" />,
+      title: "Marketplace",
+      description: "Buy farm supplies or sell your produce directly to consumers and businesses through our platform.",
+      url: "/marketplace"
+    },
+  
+    {
+      icon: <Wheat className="h-10 w-10 text-sky-500" />,
+      title: "Yield Prediction",
+      description: "Estimate crop production using data-driven insights for better planning and decision-making.",
+      url: "/yield-prediction"
     },
     {
       icon: <Map className="h-10 w-10 text-earth-500" />,
@@ -38,18 +46,7 @@ const Features = () => {
       description: "Visualize your farm with GIS mapping, field boundaries, crop zones, and resource allocation.",
       url: "/farm-map"
     },
-    {
-      icon: <ShoppingCart className="h-10 w-10 text-earth-600" />,
-      title: "Marketplace",
-      description: "Buy farm supplies or sell your produce directly to consumers and businesses through our platform.",
-      url: "/marketplace"
-    },
-    {
-      icon: <Activity className="h-10 w-10 text-sage-600" />,
-      title: "Livestock Monitoring",
-      description: "Track animal health, location, and behavior patterns with advanced IoT sensors and AI analysis.",
-      url: "/livestock"
-    },
+  
     {
       icon: <MessageSquare className="h-10 w-10 text-sky-600" />,
       title: "Community Forum",
