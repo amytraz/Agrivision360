@@ -19,7 +19,7 @@ const App = () => {
         <Toaster />
         <BrowserRouter>
           <Routes>
-            <Route element={<Layout />}>
+            {/* <Route element={<Layout />}> */}
               <Route path="/" element={<Index />} />
               <Route path="/crop-analytics" element={<CropAnalytics />} />
               <Route path="/weather" element={<Weather />} />
@@ -30,8 +30,8 @@ const App = () => {
                   <p>Coming soon...</p>
                 </div>
               } />
-              <Route path="*" element={<NotFound />} />
-            </Route>
+              {/* <Route path="*" element={<NotFound />} /> */}
+            {/* </Route> */}
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
