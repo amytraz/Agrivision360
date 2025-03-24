@@ -6,9 +6,18 @@ import Features from '@/components/Features';
 import MarketplacePreview from '@/components/MarketplacePreview';
 import Footer from '@/components/Footer';
 import AuthModal from '@/components/AuthModal';
+import { 
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from '@/components/ui/dialog';
+import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const handleOpenAuthModal = () => {
     setIsAuthModalOpen(true);
@@ -16,6 +25,10 @@ const Index = () => {
 
   const handleCloseAuthModal = () => {
     setIsAuthModalOpen(false);
+  };
+
+  const handleOpenContactModal = () => {
+    setIsContactModalOpen(true);
   };
 
   return (
@@ -48,10 +61,7 @@ const Index = () => {
             <div className="flex justify-center">
               <button 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium text-lg transition-colors"
-                onClick={() => {
-                  // This would open a contact form modal in a complete implementation
-                  console.log('Contact form would open here');
-                }}
+                onClick={handleOpenContactModal}
               >
                 Get in Touch
               </button>
@@ -66,6 +76,19 @@ const Index = () => {
         isOpen={isAuthModalOpen} 
         onClose={handleCloseAuthModal} 
       />
+
+      {/* Contact Form Modal */}
+      <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Get in Touch</DialogTitle>
+            <DialogDescription>
+              Fill out the form below and we'll get back to you as soon as possible.
+            </DialogDescription>
+          </DialogHeader>
+          <ContactForm />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
