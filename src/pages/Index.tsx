@@ -32,8 +32,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar onLoginClick={handleOpenAuthModal} />
+
       
       <main className="flex-grow">
         <Hero onGetStartedClick={handleOpenAuthModal} />
