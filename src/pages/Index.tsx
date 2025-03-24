@@ -59,7 +59,7 @@ const Index = () => {
         </section>
       </main>
       
-      <Footer />
+     
       
       <AuthModal 
         open={isAuthModalOpen} 
