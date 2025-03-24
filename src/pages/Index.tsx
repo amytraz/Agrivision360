@@ -62,8 +62,8 @@ const Index = () => {
       <Footer />
       
       <AuthModal 
-        isOpen={isAuthModalOpen} 
-        onClose={handleCloseAuthModal} 
+        open={isAuthModalOpen} 
+        setOpen={setIsAuthModalOpen} 
       />
 
       {/* Contact Form Modal */}
