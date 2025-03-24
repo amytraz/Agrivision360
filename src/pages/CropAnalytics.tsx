@@ -6,6 +6,7 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { BlurImage } from '@/components/ui/blur-image';
 import { Separator } from '@/components/ui/separator';
 import Footer from '@/components/Footer';
+import Navbar from "@/components/Navbar";
 
 const CropAnalytics = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -52,19 +53,17 @@ const CropAnalytics = () => {
   };
 
   return (
+    
     <div className="min-h-screen flex flex-col">
-      <div className="bg-background/80 backdrop-blur-md py-3 shadow-sm sticky top-0 z-40">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-1 text-foreground/70 hover:text-primary transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              <span>Back to Home</span>
-            </Link>
-            <Separator orientation="vertical" className="h-6" />
-            <h1 className="text-xl font-semibold">Crop Analytics</h1>
-          </div>
-        </div>
+  <Navbar /> {/* Navbar added at the top */}
+  <div className="bg-background/80 backdrop-blur-md py-3 shadow-sm sticky top-0 z-40">
+    <div className="container mx-auto px-4 md:px-6">
+      <div className="flex items-center gap-4">
+    
       </div>
+    </div>
+  </div>
+
       
       <main className="flex-grow py-12">
         <div className="container mx-auto px-4 md:px-6">
