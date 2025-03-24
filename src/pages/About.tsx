@@ -1,39 +1,26 @@
-
 import React from 'react';
+import Navbar from "@/components/Navbar"; // Ensure the path is correct
+import Footer from "@/components/Footer"; // Import the Footer component
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 
 const teamMembers = [
-  {
-    id: 1,
-    name: "Amit Raj Thakur",
-  
-    imagePlaceholder: "AT"
-  },
-  {
-    id: 2,
-    name: "Samarth Mule",
- 
-    imagePlaceholder: "SM"
-  },
-  {
-    id: 3,
-    name: "Sahil Malekar",
-   
-    imagePlaceholder: "SM"
-  },
-  {
-    id: 4,
-    name: "Sitaram Patel",
-
-    imagePlaceholder: "SP"
-  }
+  { id: 1, name: "Amit Raj Thakur", imagePlaceholder: "AT" },
+  { id: 2, name: "Samarth Mule", imagePlaceholder: "SM" },
+  { id: 3, name: "Sahil Malekar", imagePlaceholder: "SM" },
+  { id: 4, name: "Sitaram Patel", imagePlaceholder: "SP" }
 ];
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="min-h-screen flex flex-col">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content */}
+      <div className="flex-grow container mx-auto px-4 md:px-6 pt-20"> 
+        {/* Added pt-20 to prevent navbar overlap */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About AgriVision 360</h1>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
@@ -41,7 +28,8 @@ const About = () => {
             enabling farmers to optimize resources and increase productivity.
           </p>
         </div>
-        
+
+        {/* Our Mission */}
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Mission</h2>
           <p className="text-lg mb-8">
@@ -50,7 +38,8 @@ const About = () => {
             tools and data-driven insights, we aim to revolutionize farming practices and contribute to 
             a more efficient and sustainable agricultural ecosystem.
           </p>
-          
+
+          {/* Our Vision */}
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Vision</h2>
           <p className="text-lg mb-16">
             We envision a future where every farmer, regardless of scale, has access to advanced 
@@ -59,7 +48,8 @@ const About = () => {
             creating a harmonious integration that benefits both farmers and the environment.
           </p>
         </div>
-        
+
+        {/* Our Team Section */}
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -73,13 +63,13 @@ const About = () => {
                 </div>
                 <CardContent className="p-4 text-center">
                   <h3 className="font-bold text-lg">{member.name}</h3>
-                  <p className="text-muted-foreground">{member.role}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
-        
+
+        {/* Mentor Section */}
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">Under the Guidance of</h2>
           <Card className="max-w-xs mx-auto overflow-hidden">
@@ -96,6 +86,9 @@ const About = () => {
           </Card>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
