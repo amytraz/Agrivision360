@@ -120,7 +120,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                     </span>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-3">
+                  {/* <div className="grid grid-cols-3 gap-3">
                     {['google', 'apple', 'facebook'].map((provider) => (
                       <Button
                         key={provider}
@@ -147,7 +147,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                         )}
                       </Button>
                     ))}
-                  </div>
+                  </div> */}
                 </form>
               </TabsContent>
               
@@ -206,7 +206,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                     </span>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-3">
+                  {/* <div className="grid grid-cols-3 gap-3">
                     {['google', 'apple', 'facebook'].map((provider) => (
                       <Button
                         key={provider}
@@ -233,7 +233,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                         )}
                       </Button>
                     ))}
-                  </div>
+                  </div> */}
                   
                   <p className="text-xs text-center mt-6 text-foreground/60">
                     By creating an account, you agree to our{' '}
