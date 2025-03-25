@@ -14,6 +14,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   return (
+    // This is the code tested by samarth
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
