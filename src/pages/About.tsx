@@ -1,7 +1,5 @@
-import React from 'react';
-import Navbar from "@/components/Navbar"; // Ensure the path is correct
-import Footer from "@/components/Footer"; // Import the Footer component
 
+import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -14,13 +12,8 @@ const teamMembers = [
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Main Content */}
-      <div className="flex-grow container mx-auto px-4 md:px-6 pt-20"> 
-        {/* Added pt-20 to prevent navbar overlap */}
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4 md:px-6"> 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About AgriVision 360</h1>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
@@ -86,9 +79,6 @@ const About = () => {
           </Card>
         </div>
       </div>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

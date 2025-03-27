@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -77,6 +78,10 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
     }
   };
 
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   const featuresItems = [
     { name: "Weather & Climate", path: "/weather", icon: <CloudRain className="h-4 w-4" /> },
     { name: "Crop Analytics", path: "/crop-analytics", icon: <Sprout className="h-4 w-4" /> },
@@ -109,8 +114,18 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <Link to="/" className="text-foreground/80 hover:text-primary transition-colors">
+            <Link 
+              to="/" 
+              className={cn(
+                "text-foreground/80 hover:text-primary transition-colors relative group",
+                isActive('/') && "text-primary font-medium"
+              )}
+            >
               Home
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
+                isActive('/') ? "w-full" : "w-0 group-hover:w-full"
+              )}></span>
             </Link>
             
             <HoverCard openDelay={0} closeDelay={100}>
@@ -132,7 +147,10 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                     <Link 
                       key={item.name} 
                       to={item.path}
-                      className="flex items-center gap-3 p-3 rounded-md hover:bg-accent transition-colors"
+                      className={cn(
+                        "flex items-center gap-3 p-3 rounded-md hover:bg-accent transition-colors",
+                        isActive(item.path) && "bg-accent/80 text-primary"
+                      )}
                     >
                       {item.icon}
                       <div className="font-medium text-foreground">{item.name}</div>
@@ -142,14 +160,34 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               </HoverCardContent>
             </HoverCard>
             
-            <Link to="/marketplace" className="text-foreground/80 hover:text-primary transition-colors relative group">
+            <Link 
+              to="/marketplace" 
+              className={cn(
+                "text-foreground/80 hover:text-primary transition-colors relative group",
+                isActive('/marketplace') && "text-primary font-medium"
+              )}
+            >
               Marketplace
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
+                isActive('/marketplace') ? "w-full" : "w-0 group-hover:w-full"
+              )}></span>
             </Link>
-            <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors relative group">
+            
+            <Link 
+              to="/about" 
+              className={cn(
+                "text-foreground/80 hover:text-primary transition-colors relative group",
+                isActive('/about') && "text-primary font-medium"
+              )}
+            >
               About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
+                isActive('/about') ? "w-full" : "w-0 group-hover:w-full"
+              )}></span>
             </Link>
+            
             <a 
               href="#contact" 
               className="text-foreground/80 hover:text-primary transition-colors relative group" 
@@ -178,7 +216,10 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             <div className="flex flex-col space-y-4">
               <Link
                 to="/"
-                className="py-2 text-foreground/80 hover:text-primary transition-colors"
+                className={cn(
+                  "py-2 text-foreground/80 hover:text-primary transition-colors",
+                  isActive('/') && "text-primary font-medium"
+                )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
@@ -197,7 +238,10 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="py-1 text-foreground/80 hover:text-primary transition-colors flex items-center gap-2"
+                      className={cn(
+                        "py-1 text-foreground/80 hover:text-primary transition-colors flex items-center gap-2",
+                        isActive(item.path) && "text-primary font-medium"
+                      )}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.icon}
@@ -209,18 +253,26 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               
               <Link
                 to="/marketplace"
-                className="py-2 text-foreground/80 hover:text-primary transition-colors"
+                className={cn(
+                  "py-2 text-foreground/80 hover:text-primary transition-colors",
+                  isActive('/marketplace') && "text-primary font-medium"
+                )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Marketplace
               </Link>
+              
               <Link
                 to="/about"
-                className="py-2 text-foreground/80 hover:text-primary transition-colors"
+                className={cn(
+                  "py-2 text-foreground/80 hover:text-primary transition-colors",
+                  isActive('/about') && "text-primary font-medium"
+                )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About
               </Link>
+              
               <a
                 href="#contact"
                 className="py-2 text-foreground/80 hover:text-primary transition-colors"
@@ -232,6 +284,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               >
                 Contact
               </a>
+              
               {onLoginClick && (
                 <div className="flex flex-col gap-2 pt-2 border-t border-border/50">
                   <Button

@@ -1,10 +1,8 @@
 
 import React, { useState } from 'react';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import MarketplacePreview from '@/components/MarketplacePreview';
-import Footer from '@/components/Footer';
 import AuthModal from '@/components/AuthModal';
 import { 
   Dialog,
@@ -32,10 +30,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar onLoginClick={handleOpenAuthModal} />
-      
-      <main className="flex-grow">
+    <div className="min-h-screen">
+      <main>
         <Hero onGetStartedClick={handleOpenAuthModal} />
         <Features />
         <MarketplacePreview />
@@ -58,8 +54,6 @@ const Index = () => {
           </div>
         </section>
       </main>
-      
-      <Footer />
       
       <AuthModal 
         open={isAuthModalOpen} 
