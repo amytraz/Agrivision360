@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -23,6 +22,17 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+
+import { 
+  CloudRain, 
+  Sprout, 
+  ShoppingCart, 
+  Map, 
+  Bot,
+  Bell,
+  Wheat,
+  MessageSquare
+} from 'lucide-react';
 
 interface NavbarProps {
   onLoginClick?: () => void;
@@ -54,32 +64,28 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
     e.preventDefault();
     
     if (location.pathname !== '/') {
-      // If not on home page, navigate to home page and then scroll
       window.location.href = '/#features';
     } else {
-      // If on home page, just scroll
       const featuresSection = document.getElementById('features');
       if (featuresSection) {
         featuresSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
     
-    // Close mobile menu if open
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
   };
 
-  // All 8 features from the Features component
   const featuresItems = [
-    { name: "Weather & Climate", path: "/weather", description: "Access weather data and forecasts for your farm" },
-    { name: "Crop Analytics", path: "/crop-analytics", description: "Monitor crop health using satellite imagery" },
-    { name: "Marketplace", path: "/marketplace", description: "Buy supplies or sell produce directly" },
-    { name: "Yield Prediction", path: "/yield-prediction", description: "Estimate crop production with data-driven insights" },
-    { name: "Farm Monitoring", path: "/farm-map", description: "Visualize your farm with GIS mapping" },
-    { name: "AI Assistant", path: "/assistant", description: "Get instant answers to farming questions" },
-    { name: "Govt. Schemes & Alerts", path: "/govt-schemes", description: "Stay updated with agricultural notifications" },
-    { name: "Community Forum", path: "/community", description: "Connect with fellow farmers to share knowledge" },
+    { name: "Weather & Climate", path: "/weather", icon: <CloudRain className="h-4 w-4" /> },
+    { name: "Crop Analytics", path: "/crop-analytics", icon: <Sprout className="h-4 w-4" /> },
+    { name: "Marketplace", path: "/marketplace", icon: <ShoppingCart className="h-4 w-4" /> },
+    { name: "Yield Prediction", path: "/yield-prediction", icon: <Wheat className="h-4 w-4" /> },
+    { name: "Farm Monitoring", path: "/farm-map", icon: <Map className="h-4 w-4" /> },
+    { name: "AI Assistant", path: "/assistant", icon: <Bot className="h-4 w-4" /> },
+    { name: "Govt. Schemes & Alerts", path: "/govt-schemes", icon: <Bell className="h-4 w-4" /> },
+    { name: "Community Forum", path: "/community", icon: <MessageSquare className="h-4 w-4" /> },
   ];
 
   return (
@@ -107,7 +113,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               Home
             </Link>
             
-            {/* Features Dropdown with HoverCard for enhanced UI */}
             <HoverCard openDelay={0} closeDelay={100}>
               <HoverCardTrigger asChild>
                 <div className="relative group">
@@ -121,16 +126,16 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </div>
               </HoverCardTrigger>
-              <HoverCardContent className="w-80 p-0 bg-background/95 backdrop-blur-lg border border-border/50 shadow-lg">
+              <HoverCardContent className="w-64 p-0 bg-background/95 backdrop-blur-lg border border-border/50 shadow-lg">
                 <div className="grid gap-1 p-2">
                   {featuresItems.map((item) => (
                     <Link 
                       key={item.name} 
                       to={item.path}
-                      className="flex flex-col p-3 rounded-md hover:bg-accent transition-colors"
+                      className="flex items-center gap-3 p-3 rounded-md hover:bg-accent transition-colors"
                     >
+                      {item.icon}
                       <div className="font-medium text-foreground">{item.name}</div>
-                      <div className="text-sm text-muted-foreground">{item.description}</div>
                     </Link>
                   ))}
                 </div>
@@ -155,28 +160,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             </a>
           </div>
 
-          {/* <div className="hidden md:flex items-center gap-4">
-            {onLoginClick && (
-              <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={onLoginClick}
-                  className="rounded-full px-5"
-                >
-                  Log In
-                </Button>
-                <Button
-                  size="sm"
-                  onClick={onLoginClick}
-                  className="rounded-full px-5 bg-primary hover:bg-primary/90"
-                >
-                  Sign Up
-                </Button>
-              </>
-            )}
-          </div> */}
-
           <button
             className="md:hidden text-foreground focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -185,7 +168,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
           </button>
         </div>
 
-        {/* Mobile menu */}
         <div
           className={cn(
             'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
@@ -202,7 +184,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                 Home
               </Link>
               
-              {/* Mobile Features submenu */}
               <div className="py-2">
                 <a 
                   href="#features" 
@@ -216,11 +197,11 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="py-1 text-foreground/80 hover:text-primary transition-colors"
+                      className="py-1 text-foreground/80 hover:text-primary transition-colors flex items-center gap-2"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
+                      {item.icon}
                       <div className="font-medium">{item.name}</div>
-                      <div className="text-xs text-muted-foreground">{item.description}</div>
                     </Link>
                   ))}
                 </div>
@@ -279,7 +260,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         </div>
       </nav>
       
-      {/* Contact Form Modal */}
       <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
         <DialogContent className="max-w-md">
           <DialogHeader>
