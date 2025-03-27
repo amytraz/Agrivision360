@@ -72,7 +72,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                 <TabsTrigger value="register">Register</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="login" className="mt-0">
+              {/* <TabsContent value="login" className="mt-0">
                 <form onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-4 mb-6">
                     <div className="space-y-2">
@@ -107,9 +107,9 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   
-                  <Button className="w-full mb-4" size="lg">
+                  {/* <Button className="w-full mb-4" size="lg">
                     Sign In
                   </Button>
                   
@@ -118,7 +118,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                     <span className="absolute bg-background px-2 text-xs text-foreground/50">
                       OR CONTINUE WITH
                     </span>
-                  </div>
+                  </div> */}
                   
                   {/* <div className="grid grid-cols-3 gap-3">
                     {['google', 'apple', 'facebook'].map((provider) => (
@@ -148,10 +148,10 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                       </Button>
                     ))}
                   </div> */}
-                </form>
-              </TabsContent>
+                {/* </form>
+              </TabsContent> */}
               
-              <TabsContent value="register" className="mt-0">
+              {/* <TabsContent value="register" className="mt-0">
                 <form onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-4 mb-6">
                     <div className="space-y-2">
@@ -204,7 +204,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                     <span className="absolute bg-background px-2 text-xs text-foreground/50">
                       OR CONTINUE WITH
                     </span>
-                  </div>
+                  </div> */}
                   
                   {/* <div className="grid grid-cols-3 gap-3">
                     {['google', 'apple', 'facebook'].map((provider) => (
@@ -235,13 +235,13 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                     ))}
                   </div> */}
                   
-                  <p className="text-xs text-center mt-6 text-foreground/60">
+                  {/* <p className="text-xs text-center mt-6 text-foreground/60">
                     By creating an account, you agree to our{' '}
                     <a href="#" className="text-primary hover:underline">Terms of Service</a> and{' '}
                     <a href="#" className="text-primary hover:underline">Privacy Policy</a>
                   </p>
                 </form>
-              </TabsContent>
+              </TabsContent> */}
             </Tabs>
           </div>
         </div>
