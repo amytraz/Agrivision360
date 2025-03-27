@@ -7,6 +7,12 @@ import { BlurImage } from '@/components/ui/blur-image';
 import { Separator } from '@/components/ui/separator';
 import Footer from '@/components/Footer';
 import Navbar from "@/components/Navbar";
+import axios from 'axios';
+
+interface PredictionResult {
+  class: string;
+  confidence: number;
+}
 
 const CropAnalytics = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
