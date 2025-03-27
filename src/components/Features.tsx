@@ -62,8 +62,6 @@ const Features = () => {
       url: "/govt-schemes"
     },
    
-  
-  
     {
       icon: <MessageSquare className="h-10 w-10 text-sky-600" />,
       title: "Community Forum",
