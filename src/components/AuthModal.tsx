@@ -45,7 +45,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
               </Button>
             </div>
           
-            <Tabs 
+            {/* <Tabs 
               defaultValue="login" 
               value={activeTab} 
               onValueChange={handleTabChange}
@@ -70,7 +70,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
               <TabsList className="grid w-full grid-cols-2 mb-6">
                 <TabsTrigger value="login">Login</TabsTrigger>
                 <TabsTrigger value="register">Register</TabsTrigger>
-              </TabsList>
+              </TabsList> */}
               
               {/* <TabsContent value="login" className="mt-0">
                 <form onSubmit={(e) => e.preventDefault()}>
@@ -242,7 +242,7 @@ const AuthModal = ({ open, setOpen }: AuthModalProps) => {
                   </p>
                 </form>
               </TabsContent> */}
-            </Tabs>
+            {/* </Tabs> */}
           </div>
         </div>
       </DialogContent>
