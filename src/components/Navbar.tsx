@@ -126,7 +126,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             </a>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
+          {/* <div className="hidden md:flex items-center gap-4">
             {onLoginClick && (
               <>
                 <Button
@@ -146,7 +146,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                 </Button>
               </>
             )}
-          </div>
+          </div> */}
 
           <button
             className="md:hidden text-foreground focus:outline-none"
