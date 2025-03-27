@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import Layout from '@/components/Layout';
 import { 
   Card, 
   CardHeader, 
@@ -109,7 +107,6 @@ const GovernmentSchemes = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('all');
   
-  // Filter schemes based on search term and active tab
   const filteredSchemes = schemes.filter(scheme => {
     const matchesSearch = scheme.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           scheme.description.toLowerCase().includes(searchTerm.toLowerCase());
@@ -123,82 +120,80 @@ const GovernmentSchemes = () => {
   };
 
   return (
-    <Layout>
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-2">Government Agricultural Schemes</h1>
-          <p className="text-muted-foreground mb-8">
-            Explore various government schemes and programs designed to support farmers and agriculture in India
-          </p>
-          
-          <div className="flex flex-col md:flex-row gap-4 mb-8">
-            <div className="w-full">
-              <Input
-                placeholder="Search schemes by name or description..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full"
-              />
-            </div>
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-2">Government Agricultural Schemes</h1>
+        <p className="text-muted-foreground mb-8">
+          Explore various government schemes and programs designed to support farmers and agriculture in India
+        </p>
+        
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          <div className="w-full">
+            <Input
+              placeholder="Search schemes by name or description..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full"
+            />
           </div>
-          
-          <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="mb-8 flex flex-wrap">
-              <TabsTrigger value="all">All Schemes</TabsTrigger>
-              <TabsTrigger value="income-support">Income Support</TabsTrigger>
-              <TabsTrigger value="insurance">Insurance</TabsTrigger>
-              <TabsTrigger value="irrigation">Irrigation</TabsTrigger>
-              <TabsTrigger value="soil-health">Soil Health</TabsTrigger>
-              <TabsTrigger value="credit">Credit</TabsTrigger>
-              <TabsTrigger value="sustainability">Sustainability</TabsTrigger>
-              <TabsTrigger value="market-access">Market Access</TabsTrigger>
-              <TabsTrigger value="collective-farming">Collective Farming</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value={activeTab} className="mt-0">
-              {filteredSchemes.length > 0 ? (
-                <div className="grid grid-cols-1 gap-6">
-                  {filteredSchemes.map((scheme) => (
-                    <Card key={scheme.id} className="overflow-hidden transition-all hover:border-primary/50">
-                      <CardHeader className="flex flex-row items-start gap-4 pb-2">
-                        <div className="mt-1">{scheme.icon}</div>
-                        <div>
-                          <CardTitle>{scheme.title}</CardTitle>
-                          <CardDescription className="mt-1">{scheme.description}</CardDescription>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-medium text-sm">Eligibility:</h4>
-                            <p className="text-muted-foreground text-sm">{scheme.eligibility}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-medium text-sm">Benefits:</h4>
-                            <p className="text-muted-foreground text-sm">{scheme.benefits}</p>
-                          </div>
-                          <Button 
-                            onClick={() => handleOpenScheme(scheme.url)}
-                            className="w-full mt-4"
-                          >
-                            Visit Official Website
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-12">
-                  <h3 className="text-xl font-medium">No schemes found</h3>
-                  <p className="text-muted-foreground mt-2">Try adjusting your search or filter criteria</p>
-                </div>
-              )}
-            </TabsContent>
-          </Tabs>
         </div>
+        
+        <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab}>
+          <TabsList className="mb-8 flex flex-wrap">
+            <TabsTrigger value="all">All Schemes</TabsTrigger>
+            <TabsTrigger value="income-support">Income Support</TabsTrigger>
+            <TabsTrigger value="insurance">Insurance</TabsTrigger>
+            <TabsTrigger value="irrigation">Irrigation</TabsTrigger>
+            <TabsTrigger value="soil-health">Soil Health</TabsTrigger>
+            <TabsTrigger value="credit">Credit</TabsTrigger>
+            <TabsTrigger value="sustainability">Sustainability</TabsTrigger>
+            <TabsTrigger value="market-access">Market Access</TabsTrigger>
+            <TabsTrigger value="collective-farming">Collective Farming</TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value={activeTab} className="mt-0">
+            {filteredSchemes.length > 0 ? (
+              <div className="grid grid-cols-1 gap-6">
+                {filteredSchemes.map((scheme) => (
+                  <Card key={scheme.id} className="overflow-hidden transition-all hover:border-primary/50">
+                    <CardHeader className="flex flex-row items-start gap-4 pb-2">
+                      <div className="mt-1">{scheme.icon}</div>
+                      <div>
+                        <CardTitle>{scheme.title}</CardTitle>
+                        <CardDescription className="mt-1">{scheme.description}</CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="font-medium text-sm">Eligibility:</h4>
+                          <p className="text-muted-foreground text-sm">{scheme.eligibility}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-sm">Benefits:</h4>
+                          <p className="text-muted-foreground text-sm">{scheme.benefits}</p>
+                        </div>
+                        <Button 
+                          onClick={() => handleOpenScheme(scheme.url)}
+                          className="w-full mt-4"
+                        >
+                          Visit Official Website
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <h3 className="text-xl font-medium">No schemes found</h3>
+                <p className="text-muted-foreground mt-2">Try adjusting your search or filter criteria</p>
+              </div>
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
-    </Layout>
+    </div>
   );
 };
 

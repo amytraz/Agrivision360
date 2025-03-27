@@ -25,8 +25,8 @@ const App = () => {
         <Toaster />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Index />} />
+            <Route element={<Layout />}>
+              <Route path="/" element={<Index />} />
               <Route path="/crop-analytics" element={<CropAnalytics />} />
               <Route path="/weather" element={<Weather />} />
               <Route path="/about" element={<About />} />
