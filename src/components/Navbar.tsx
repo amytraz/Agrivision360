@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Dialog,
   DialogContent,
@@ -24,6 +23,17 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
+import { 
+  CloudRain, 
+  Sprout, 
+  ShoppingCart, 
+  Map, 
+  Bot,
+  Bell,
+  Wheat,
+  MessageSquare
+} from 'lucide-react';
+
 interface NavbarProps {
   onLoginClick?: () => void;
 }
@@ -32,6 +42,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,11 +60,32 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
     setIsContactModalOpen(true);
   };
 
+  const scrollToFeatures = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (location.pathname !== '/') {
+      window.location.href = '/#features';
+    } else {
+      const featuresSection = document.getElementById('features');
+      if (featuresSection) {
+        featuresSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const featuresItems = [
-    { name: "Crop Analytics", path: "/crop-analytics", description: "Get insights about your crops and optimize yield" },
-    { name: "Weather Forecast", path: "/weather", description: "Real-time weather updates and forecasts for farming" },
-    { name: "Soil Analysis", path: "/#soil-analysis", description: "Understand soil health and nutrient requirements" },
-    { name: "Pest Detection", path: "/#pest-detection", description: "Identify and manage pests affecting your crops" },
+    { name: "Weather & Climate", path: "/weather", icon: <CloudRain className="h-4 w-4" /> },
+    { name: "Crop Analytics", path: "/crop-analytics", icon: <Sprout className="h-4 w-4" /> },
+    { name: "Marketplace", path: "/marketplace", icon: <ShoppingCart className="h-4 w-4" /> },
+    { name: "Yield Prediction", path: "/yield-prediction", icon: <Wheat className="h-4 w-4" /> },
+    { name: "Farm Monitoring", path: "/farm-map", icon: <Map className="h-4 w-4" /> },
+    { name: "AI Assistant", path: "/assistant", icon: <Bot className="h-4 w-4" /> },
+    { name: "Govt. Schemes & Alerts", path: "/govt-schemes", icon: <Bell className="h-4 w-4" /> },
+    { name: "Community Forum", path: "/community", icon: <MessageSquare className="h-4 w-4" /> },
   ];
 
   return (
@@ -81,27 +113,29 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               Home
             </Link>
             
-            {/* Features Dropdown with HoverCard for enhanced UI */}
             <HoverCard openDelay={0} closeDelay={100}>
               <HoverCardTrigger asChild>
                 <div className="relative group">
-                  <Link to="/crop-analytics" className="text-foreground/80 hover:text-primary transition-colors flex items-center gap-1">
+                  <a 
+                    href="#features" 
+                    className="text-foreground/80 hover:text-primary transition-colors flex items-center gap-1 cursor-pointer"
+                    onClick={scrollToFeatures}
+                  >
                     Features <ChevronDown className="h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
-                  </Link>
+                  </a>
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </div>
               </HoverCardTrigger>
-              <HoverCardContent className="w-80 p-0 bg-background/95 backdrop-blur-lg border border-border/50 shadow-lg">
-                <div className="grid gap-2 p-2">
+              <HoverCardContent className="w-64 p-0 bg-background/95 backdrop-blur-lg border border-border/50 shadow-lg">
+                <div className="grid gap-1 p-2">
                   {featuresItems.map((item) => (
                     <Link 
                       key={item.name} 
                       to={item.path}
-                      className="flex flex-col p-3 rounded-md hover:bg-accent transition-colors"
-                      onClick={() => {}}
+                      className="flex items-center gap-3 p-3 rounded-md hover:bg-accent transition-colors"
                     >
+                      {item.icon}
                       <div className="font-medium text-foreground">{item.name}</div>
-                      <div className="text-sm text-muted-foreground">{item.description}</div>
                     </Link>
                   ))}
                 </div>
@@ -126,28 +160,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
             </a>
           </div>
 
-          {/* <div className="hidden md:flex items-center gap-4">
-            {onLoginClick && (
-              <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={onLoginClick}
-                  className="rounded-full px-5"
-                >
-                  Log In
-                </Button>
-                <Button
-                  size="sm"
-                  onClick={onLoginClick}
-                  className="rounded-full px-5 bg-primary hover:bg-primary/90"
-                >
-                  Sign Up
-                </Button>
-              </>
-            )}
-          </div> */}
-
           <button
             className="md:hidden text-foreground focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -156,11 +168,10 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
           </button>
         </div>
 
-        {/* Mobile menu */}
         <div
           className={cn(
             'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
-            isMobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+            isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           )}
         >
           <div className="container mx-auto px-4 py-4 bg-background/95 backdrop-blur-md border-t border-border/50">
@@ -173,19 +184,24 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
                 Home
               </Link>
               
-              {/* Mobile Features submenu */}
               <div className="py-2">
-                <p className="text-foreground/80 hover:text-primary transition-colors mb-2">Features</p>
-                <div className="pl-4 flex flex-col space-y-2">
+                <a 
+                  href="#features" 
+                  className="text-foreground/80 hover:text-primary transition-colors mb-2 flex items-center"
+                  onClick={scrollToFeatures}
+                >
+                  Features <ChevronDown className="h-4 w-4 ml-1" />
+                </a>
+                <div className="pl-4 flex flex-col space-y-2 mt-2">
                   {featuresItems.map((item) => (
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="py-1 text-foreground/80 hover:text-primary transition-colors"
+                      className="py-1 text-foreground/80 hover:text-primary transition-colors flex items-center gap-2"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
+                      {item.icon}
                       <div className="font-medium">{item.name}</div>
-                      <div className="text-xs text-muted-foreground">{item.description}</div>
                     </Link>
                   ))}
                 </div>
@@ -244,7 +260,6 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
         </div>
       </nav>
       
-      {/* Contact Form Modal */}
       <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
         <DialogContent className="max-w-md">
           <DialogHeader>
