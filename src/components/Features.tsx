@@ -10,6 +10,7 @@ import {
   Activity, 
   MessageSquare, 
   Bot,
+  Bell,
   Wheat
 } from 'lucide-react';
 
@@ -40,25 +41,36 @@ const Features = () => {
       description: "Estimate crop production using data-driven insights for better planning and decision-making.",
       url: "/yield-prediction"
     },
+
     {
       icon: <Map className="h-10 w-10 text-earth-500" />,
-      title: "Interactive Farm Map",
+      title: "Farm Monitoring",
       description: "Visualize your farm with GIS mapping, field boundaries, crop zones, and resource allocation.",
       url: "/farm-map"
     },
+
+    {
+      icon: <Bot className="h-10 w-10 text-primary" />,
+      title: "AI Assistant",
+      description: "Get instant answers to your farming questions from our specialized agricultural chatbot.",
+      url: "/assistant"
+    },
+    {
+      icon: <Bell className="h-10 w-10 text-primary" />,
+      title: "Govt. Schemes & Alerts",
+      description: "Stay updated with the latest government schemes, subsidies, and important agricultural notifications.",
+      url: "/govt-schemes"
+    },
+   
+  
   
     {
       icon: <MessageSquare className="h-10 w-10 text-sky-600" />,
       title: "Community Forum",
       description: "Connect with fellow farmers to share knowledge, ask questions, and discuss agricultural topics.",
       url: "/community"
-    },
-    {
-      icon: <Bot className="h-10 w-10 text-primary" />,
-      title: "AI Assistant",
-      description: "Get instant answers to your farming questions from our specialized agricultural chatbot.",
-      url: "/assistant"
     }
+   
   ];
 
   return (
