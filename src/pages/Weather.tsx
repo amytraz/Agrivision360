@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import DashboardNavbar from '@/components/DashboardNavbar';
+
 import { 
   CloudRain, 
   Droplets, 
@@ -457,7 +457,7 @@ const Weather = () => {
         </div>
       </main>
       
-      <Footer />
+      
     </div>
   );
 };
