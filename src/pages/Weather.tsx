@@ -460,7 +460,7 @@ const Weather = () => {
         </div>
       </main>
       
-      <Footer />
+     
     </div>
   );
 };
