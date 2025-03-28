@@ -198,7 +198,7 @@ const Weather = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <DashboardNavbar />
+
       
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-8">
