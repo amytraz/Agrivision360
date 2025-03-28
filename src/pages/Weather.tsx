@@ -80,76 +80,79 @@ const Weather = () => {
           sunrise: '6:15 AM',
           sunset: '6:45 PM',
           forecasts: [
-            {
-              date: '2023-10-15',
-              day: 'Today',
-              maxTemp: 29,
-              minTemp: 22,
-              condition: 'Partly Cloudy',
-              precipitation: 20,
-              humidity: 65,
-              windSpeed: 12
-            },
-            {
-              date: '2023-10-16',
-              day: 'Tomorrow',
-              maxTemp: 30,
-              minTemp: 23,
-              condition: 'Sunny',
-              precipitation: 10,
-              humidity: 60,
-              windSpeed: 10
-            },
-            {
-              date: '2023-10-17',
-              day: 'Wed',
-              maxTemp: 27,
-              minTemp: 21,
-              condition: 'Rain',
-              precipitation: 80,
-              humidity: 75,
-              windSpeed: 15
-            },
-            {
-              date: '2023-10-18',
-              day: 'Thu',
-              maxTemp: 26,
-              minTemp: 20,
-              condition: 'Heavy Rain',
-              precipitation: 90,
-              humidity: 85,
-              windSpeed: 18
-            },
-            {
-              date: '2023-10-19',
-              day: 'Fri',
-              maxTemp: 25,
-              minTemp: 19,
-              condition: 'Light Rain',
-              precipitation: 60,
-              humidity: 80,
-              windSpeed: 14
-            },
-            {
-              date: '2023-10-20',
-              day: 'Sat',
-              maxTemp: 27,
-              minTemp: 20,
-              condition: 'Cloudy',
-              precipitation: 30,
-              humidity: 70,
-              windSpeed: 11
-            },
-            {
-              date: '2023-10-21',
-              day: 'Sun',
-              maxTemp: 28,
-              minTemp: 21,
-              condition: 'Partly Cloudy',
-              precipitation: 20,
-              humidity: 65,
-              windSpeed: 10
-            }
+            [
+  {
+    "date": "2025-03-28",
+    "day": "Today",
+    "maxTemp": 38,
+    "minTemp": 19,
+    "condition": "Sunny",
+    "precipitation": 5,
+    "humidity": 30,
+    "windSpeed": 10
+  },
+  {
+    "date": "2025-03-29",
+    "day": "Tomorrow",
+    "maxTemp": 39,
+    "minTemp": 19,
+    "condition": "Hazy Sun",
+    "precipitation": 5,
+    "humidity": 28,
+    "windSpeed": 12
+  },
+  {
+    "date": "2025-03-30",
+    "day": "Sun",
+    "maxTemp": 40,
+    "minTemp": 21,
+    "condition": "Hot & Sunny",
+    "precipitation": 2,
+    "humidity": 25,
+    "windSpeed": 14
+  },
+  {
+    "date": "2025-03-31",
+    "day": "Mon",
+    "maxTemp": 38,
+    "minTemp": 22,
+    "condition": "Hazy Sun",
+    "precipitation": 5,
+    "humidity": 27,
+    "windSpeed": 11
+  },
+  {
+    "date": "2025-04-01",
+    "day": "Tue",
+    "maxTemp": 39,
+    "minTemp": 23,
+    "condition": "Hot & Sunny",
+    "precipitation": 3,
+    "humidity": 24,
+    "windSpeed": 13
+  },
+  {
+    "date": "2025-04-02",
+    "day": "Wed",
+    "maxTemp": 40,
+    "minTemp": 23,
+    "condition": "Partly Cloudy with Thunderstorm",
+    "precipitation": 30,
+    "humidity": 35,
+    "windSpeed": 16
+  },
+  {
+    "date": "2025-04-03",
+    "day": "Thu",
+    "maxTemp": 34,
+    "minTemp": 21,
+    "condition": "Mostly Cloudy",
+    "precipitation": 10,
+    "humidity": 40,
+    "windSpeed": 12
+  }
+]
+
           ],
           agricultureTips: [
             {
