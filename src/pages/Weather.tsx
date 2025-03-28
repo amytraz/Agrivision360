@@ -79,7 +79,7 @@ const Weather = () => {
           condition: 'Partly Cloudy',
           sunrise: '6:15 AM',
           sunset: '6:45 PM',
-           "forecasts": [
+           forecasts: [
                           {
                             "date": "2025-03-28",
                             "day": "Today",
@@ -150,7 +150,7 @@ const Weather = () => {
                             "humidity": 40,
                             "windSpeed": 12
                           }
-                        ]
+                        ],
 
           agricultureTips: [
             {
