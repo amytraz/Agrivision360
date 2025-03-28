@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import Navbar from "@/components/Navbar"; // Adjust the path if needed
+
 import DashboardNavbar from '@/components/DashboardNavbar';
 import { 
   CloudRain, 
@@ -72,86 +74,87 @@ const Weather = () => {
         // Mock data - in a real app, this would come from a weather API
         const mockWeatherData: WeatherData = {
           location: location,
-          currentTemp: 28,
-          feelsLike: 30,
-          humidity: 65,
-          windSpeed: 12,
+          currentTemp: 32,
+          feelsLike: 32,
+          humidity: 40,
+          windSpeed: 5,
           condition: 'Partly Cloudy',
           sunrise: '6:15 AM',
           sunset: '6:45 PM',
-           forecasts: [
-                          {
-                            "date": "2025-03-28",
-                            "day": "Today",
-                            "maxTemp": 38,
-                            "minTemp": 19,
-                            "condition": "Sunny",
-                            "precipitation": 5,
-                            "humidity": 30,
-                            "windSpeed": 10
-                          },
-                          {
-                            "date": "2025-03-29",
-                            "day": "Tomorrow",
-                            "maxTemp": 39,
-                            "minTemp": 19,
-                            "condition": "Hazy Sun",
-                            "precipitation": 5,
-                            "humidity": 28,
-                            "windSpeed": 12
-                          },
-                          {
-                            "date": "2025-03-30",
-                            "day": "Sun",
-                            "maxTemp": 40,
-                            "minTemp": 21,
-                            "condition": "Hot & Sunny",
-                            "precipitation": 2,
-                            "humidity": 25,
-                            "windSpeed": 14
-                          },
-                          {
-                            "date": "2025-03-31",
-                            "day": "Mon",
-                            "maxTemp": 38,
-                            "minTemp": 22,
-                            "condition": "Hazy Sun",
-                            "precipitation": 5,
-                            "humidity": 27,
-                            "windSpeed": 11
-                          },
-                          {
-                            "date": "2025-04-01",
-                            "day": "Tue",
-                            "maxTemp": 39,
-                            "minTemp": 23,
-                            "condition": "Hot & Sunny",
-                            "precipitation": 3,
-                            "humidity": 24,
-                            "windSpeed": 13
-                          },
-                          {
-                            "date": "2025-04-02",
-                            "day": "Wed",
-                            "maxTemp": 40,
-                            "minTemp": 23,
-                            "condition": "Partly Cloudy with Thunderstorm",
-                            "precipitation": 30,
-                            "humidity": 35,
-                            "windSpeed": 16
-                          },
-                          {
-                            "date": "2025-04-03",
-                            "day": "Thu",
-                            "maxTemp": 34,
-                            "minTemp": 21,
-                            "condition": "Mostly Cloudy",
-                            "precipitation": 10,
-                            "humidity": 40,
-                            "windSpeed": 12
-                          }
-                        ],
-
+          forecasts: [
+            
+              {
+                "date": "2025-03-28",
+                "day": "Today",
+                "maxTemp": 38,
+                "minTemp": 19,
+                "condition": "Sunny",
+                "precipitation": 5,
+                "humidity": 30,
+                "windSpeed": 10
+              },
+              {
+                "date": "2025-03-29",
+                "day": "Tomorrow",
+                "maxTemp": 39,
+                "minTemp": 19,
+                "condition": "Hazy Sun",
+                "precipitation": 5,
+                "humidity": 28,
+                "windSpeed": 12
+              },
+              {
+                "date": "2025-03-30",
+                "day": "Sun",
+                "maxTemp": 40,
+                "minTemp": 21,
+                "condition": "Hot & Sunny",
+                "precipitation": 2,
+                "humidity": 25,
+                "windSpeed": 14
+              },
+              {
+                "date": "2025-03-31",
+                "day": "Mon",
+                "maxTemp": 38,
+                "minTemp": 22,
+                "condition": "Hazy Sun",
+                "precipitation": 5,
+                "humidity": 27,
+                "windSpeed": 11
+              },
+              {
+                "date": "2025-04-01",
+                "day": "Tue",
+                "maxTemp": 39,
+                "minTemp": 23,
+                "condition": "Hot & Sunny",
+                "precipitation": 3,
+                "humidity": 24,
+                "windSpeed": 13
+              },
+              {
+                "date": "2025-04-02",
+                "day": "Wed",
+                "maxTemp": 40,
+                "minTemp": 23,
+                "condition": "Partly Cloudy with Thunderstorm",
+                "precipitation": 30,
+                "humidity": 35,
+                "windSpeed": 16
+              },
+              {
+                "date": "2025-04-03",
+                "day": "Thu",
+                "maxTemp": 34,
+                "minTemp": 21,
+                "condition": "Mostly Cloudy",
+                "precipitation": 10,
+                "humidity": 40,
+                "windSpeed": 12
+              }
+            ],
+          
           agricultureTips: [
             {
               title: 'Irrigation Advisory',
@@ -196,9 +199,8 @@ const Weather = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <DashboardNavbar />
-      
-      <main className="flex-grow">
+      <Navbar />
+      <main className="flex-grow pt-16">
         <div className="container mx-auto px-4 py-8">
           <div className="mb-6">
             <h1 className="text-3xl font-bold mb-2">Weather & Climate</h1>
@@ -458,7 +460,7 @@ const Weather = () => {
         </div>
       </main>
       
-      
+      <Footer />
     </div>
   );
 };
