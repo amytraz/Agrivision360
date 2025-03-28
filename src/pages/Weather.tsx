@@ -138,7 +138,7 @@ const Weather = () => {
                 "day": "Wed",
                 "maxTemp": 40,
                 "minTemp": 23,
-                "condition": "Partly Cloudy with Thunderstorm",
+                "condition": "Partly Cloudy",
                 "precipitation": 30,
                 "humidity": 35,
                 "windSpeed": 16
