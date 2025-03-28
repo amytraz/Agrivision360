@@ -7,8 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const teamMembers = [
   { id: 1, name: "Amit Raj Thakur", imagePlaceholder: "AT", imageUrl: "/images/amit.png" },
-  { id: 2, name: "Samarth Mule", imagePlaceholder: "SM", imageUrl: "/images/samarth.jpg" },
-  { id: 3, name: "Sahil Malekar", imagePlaceholder: "SM", imageUrl: "/images/sahil.jpg" },
+  { id: 2, name: "Samarth Mule", imagePlaceholder: "SM", imageUrl: "/images/sam.jpeg" },
+  { id: 3, name: "Sahil Malekar", imagePlaceholder: "SM", imageUrl: "/images/sahil.jpeg" },
   { id: 4, name: "Sitaram Patel", imagePlaceholder: "SP", imageUrl: "/images/sitaram.jpg" }
 ];
 
