@@ -15,11 +15,11 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface AuthModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
+const AuthModal = ({ open, setOpen }: AuthModalProps) => {
   const [activeTab, setActiveTab] = useState<string>('login');
   
   const handleTabChange = (value: string) => {
@@ -27,7 +27,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden rounded-2xl">
         <div className="relative w-full h-full">
           {/* Background with blur and gradient */}
@@ -38,14 +38,14 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                onClick={onClose}
+                onClick={() => setOpen(false)}
                 className="rounded-full h-8 w-8 text-foreground/70 hover:text-foreground"
               >
                 <X size={18} />
               </Button>
             </div>
           
-            <Tabs 
+            {/* <Tabs 
               defaultValue="login" 
               value={activeTab} 
               onValueChange={handleTabChange}
@@ -70,9 +70,9 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
               <TabsList className="grid w-full grid-cols-2 mb-6">
                 <TabsTrigger value="login">Login</TabsTrigger>
                 <TabsTrigger value="register">Register</TabsTrigger>
-              </TabsList>
+              </TabsList> */}
               
-              <TabsContent value="login" className="mt-0">
+              {/* <TabsContent value="login" className="mt-0">
                 <form onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-4 mb-6">
                     <div className="space-y-2">
@@ -107,9 +107,9 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   
-                  <Button className="w-full mb-4" size="lg">
+                  {/* <Button className="w-full mb-4" size="lg">
                     Sign In
                   </Button>
                   
@@ -118,9 +118,9 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                     <span className="absolute bg-background px-2 text-xs text-foreground/50">
                       OR CONTINUE WITH
                     </span>
-                  </div>
+                  </div> */}
                   
-                  <div className="grid grid-cols-3 gap-3">
+                  {/* <div className="grid grid-cols-3 gap-3">
                     {['google', 'apple', 'facebook'].map((provider) => (
                       <Button
                         key={provider}
@@ -147,11 +147,11 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                         )}
                       </Button>
                     ))}
-                  </div>
-                </form>
-              </TabsContent>
+                  </div> */}
+                {/* </form>
+              </TabsContent> */}
               
-              <TabsContent value="register" className="mt-0">
+              {/* <TabsContent value="register" className="mt-0">
                 <form onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-4 mb-6">
                     <div className="space-y-2">
@@ -204,9 +204,9 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                     <span className="absolute bg-background px-2 text-xs text-foreground/50">
                       OR CONTINUE WITH
                     </span>
-                  </div>
+                  </div> */}
                   
-                  <div className="grid grid-cols-3 gap-3">
+                  {/* <div className="grid grid-cols-3 gap-3">
                     {['google', 'apple', 'facebook'].map((provider) => (
                       <Button
                         key={provider}
@@ -233,16 +233,16 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                         )}
                       </Button>
                     ))}
-                  </div>
+                  </div> */}
                   
-                  <p className="text-xs text-center mt-6 text-foreground/60">
+                  {/* <p className="text-xs text-center mt-6 text-foreground/60">
                     By creating an account, you agree to our{' '}
                     <a href="#" className="text-primary hover:underline">Terms of Service</a> and{' '}
                     <a href="#" className="text-primary hover:underline">Privacy Policy</a>
                   </p>
                 </form>
-              </TabsContent>
-            </Tabs>
+              </TabsContent> */}
+            {/* </Tabs> */}
           </div>
         </div>
       </DialogContent>

@@ -7,38 +7,39 @@ import { BlurImage } from './ui/blur-image';
 const MarketplacePreview = () => {
   // Example produce items
   const products = [
-    {
-      id: 1,
-      name: "Organic Red Apples",
-      price: "$3.49/lb",
-      seller: "Green Valley Farms",
-      rating: 4.8,
-      image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?q=80&w=1974&auto=format&fit=crop"
-    },
-    {
-      id: 2,
-      name: "Farm Fresh Eggs",
-      price: "$5.99/dozen",
-      seller: "Sunshine Poultry",
-      rating: 4.9,
-      image: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?q=80&w=1970&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      name: "Heirloom Tomatoes",
-      price: "$4.29/lb",
-      seller: "Heritage Gardens",
-      rating: 4.7,
-      image: "https://images.unsplash.com/photo-1546094096-0df4bcabd31c?q=80&w=1974&auto=format&fit=crop"
-    },
-    {
-      id: 4,
-      name: "Raw Wildflower Honey",
-      price: "$12.99/jar",
-      seller: "BeeHaven Apiaries",
-      rating: 5.0,
-      image: "https://images.unsplash.com/photo-1587049352851-8d4e89133924?q=80&w=1980&auto=format&fit=crop"
-    }
+      {
+        id: 1,
+        name: "Organic Red Apples",
+        price: "₹290/kg",
+        seller: "Green Valley Farms",
+        rating: 4.8,
+        image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?q=80&w=1974&auto=format&fit=crop"
+      },
+      {
+        id: 2,
+        name: "Farm Fresh Eggs",
+        price: "₹499/dozen",
+        seller: "Sunshine Poultry",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?q=80&w=1970&auto=format&fit=crop"
+      },
+      {
+        id: 3,
+        name: "Heirloom Tomatoes",
+        price: "₹350/kg",
+        seller: "Heritage Gardens",
+        rating: 4.7,
+        image: "https://images.unsplash.com/photo-1546094096-0df4bcabd31c?q=80&w=1974&auto=format&fit=crop"
+      },
+      {
+        id: 4,
+        name: "Raw Wildflower Honey",
+        price: "₹1,080/jar",
+        seller: "BeeHaven Apiaries",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1587049352851-8d4e89133924?q=80&w=1980&auto=format&fit=crop"
+      }
+      
   ];
 
   return (

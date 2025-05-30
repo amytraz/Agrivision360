@@ -9,7 +9,9 @@ import {
   ShoppingCart, 
   Activity, 
   MessageSquare, 
-  Bot 
+  Bot,
+  Bell,
+  Wheat
 } from 'lucide-react';
 
 const Features = () => {
@@ -27,41 +29,46 @@ const Features = () => {
       url: "/crop-analytics"
     },
     {
-      icon: <BarChart className="h-10 w-10 text-sky-500" />,
-      title: "Market Insights",
-      description: "Track commodity prices, market trends, and demand forecasts to optimize your selling strategy.",
-      url: "/market-insights"
-    },
-    {
-      icon: <Map className="h-10 w-10 text-earth-500" />,
-      title: "Interactive Farm Map",
-      description: "Visualize your farm with GIS mapping, field boundaries, crop zones, and resource allocation.",
-      url: "/farm-map"
-    },
-    {
       icon: <ShoppingCart className="h-10 w-10 text-earth-600" />,
       title: "Marketplace",
       description: "Buy farm supplies or sell your produce directly to consumers and businesses through our platform.",
       url: "/marketplace"
     },
+  
     {
-      icon: <Activity className="h-10 w-10 text-sage-600" />,
-      title: "Livestock Monitoring",
-      description: "Track animal health, location, and behavior patterns with advanced IoT sensors and AI analysis.",
-      url: "/livestock"
+      icon: <Wheat className="h-10 w-10 text-sky-500" />,
+      title: "Yield Prediction",
+      description: "Estimate crop production using data-driven insights for better planning and decision-making.",
+      url: "/yield-prediction"
     },
+
     {
-      icon: <MessageSquare className="h-10 w-10 text-sky-600" />,
-      title: "Community Forum",
-      description: "Connect with fellow farmers to share knowledge, ask questions, and discuss agricultural topics.",
-      url: "/community"
+      icon: <Map className="h-10 w-10 text-earth-500" />,
+      title: "Farm Monitoring",
+      description: "Visualize your farm with GIS mapping, field boundaries, crop zones, and resource allocation.",
+      url: "/farm-map"
     },
+
     {
       icon: <Bot className="h-10 w-10 text-primary" />,
       title: "AI Assistant",
       description: "Get instant answers to your farming questions from our specialized agricultural chatbot.",
       url: "/assistant"
+    },
+    {
+      icon: <Bell className="h-10 w-10 text-primary" />,
+      title: "Govt. Schemes & Alerts",
+      description: "Stay updated with the latest government schemes, subsidies, and important agricultural notifications.",
+      url: "/govt-schemes"
+    },
+   
+    {
+      icon: <MessageSquare className="h-10 w-10 text-sky-600" />,
+      title: "Community Forum",
+      description: "Connect with fellow farmers to share knowledge, ask questions, and discuss agricultural topics.",
+      url: "/community"
     }
+   
   ];
 
   return (

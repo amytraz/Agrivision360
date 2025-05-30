@@ -1,69 +1,21 @@
-# Welcome to your Lovable project
+# AgriVision 360
 
-## Project info
+## Overview
+AgriVision 360 is a comprehensive agricultural management system designed to enhance farming efficiency and productivity through technology-driven solutions. The platform provides farmers with real-time insights, smart analytics, and decision-making tools to optimize their agricultural practices.
 
-**URL**: https://lovable.dev/projects/1a0104f0-b715-4bbc-aaf2-5901f70370c6
+## Features
+- **Real-Time Weather Monitoring** – Provides weather updates and forecasts to assist farmers in planning their activities.
+- **Crop Health Analysis** – Uses AI-based image processing to detect plant diseases and suggest remedies.
+- **Soil Analysis** – Helps farmers understand soil composition and recommends suitable crops and fertilizers.
+- **Smart Irrigation System** – Optimizes water usage based on real-time data.
+- **Market Price Analysis** – Keeps farmers updated on current market prices for their produce.
+- **Pest & Disease Alerts** – Notifies users about potential threats and preventive measures.
+- **Farm Management Dashboard** – Provides a user-friendly interface for managing farm activities and resources.
+## Usage
+- Sign up as a farmer to access crop and soil analytics.
+- Upload crop images for AI-powered disease detection.
+- Get customized farming recommendations based on soil and weather data.
+- Monitor farm activities and manage resources efficiently.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1a0104f0-b715-4bbc-aaf2-5901f70370c6) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1a0104f0-b715-4bbc-aaf2-5901f70370c6) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## Contact
+For inquiries, please contact amytraz07@gmail.com 
