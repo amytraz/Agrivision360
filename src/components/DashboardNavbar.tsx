@@ -27,31 +27,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import Logo from './Logo';
-import { 
-  Menu, 
-  X, 
-  Home, 
-  CloudRain, 
-  Sprout, 
-  BarChart, 
-  Map, 
-  ShoppingCart, 
-  Activity, 
-  MessageSquare, 
-  Bot, 
-  User 
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import logo from '../../assets/images/Logo.png';
 
 const DashboardNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -73,7 +49,8 @@ const DashboardNavbar = () => {
     <nav className="bg-background/80 backdrop-blur-md py-3 shadow-sm border-b border-border/50 sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <Logo />
+          <img src={logo} alt="AgriVision360" className="h-10 w-10 object-contain" />
+          <span className="font-bold text-xl text-primary">AgriVision360</span>
         </Link>
 
         <div className="hidden md:block">

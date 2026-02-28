@@ -478,7 +478,9 @@ class ModelInference:
 # ------------------------------
 if __name__ == "__main__":
     try:
-        DATA_PATH = "/content/drive/MyDrive/Technical Seminar/Dataset"
+        # Use a local dataset directory relative to the project root
+        DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "dataset")
+        os.makedirs(DATA_PATH, exist_ok=True)
         pipeline = TurboPipeline(
             data_dir=DATA_PATH,
             img_size=128,
@@ -522,7 +524,9 @@ app.add_middleware(
 )
 
 # Load the model (only once at startup)
-DATA_PATH = "/content/drive/MyDrive/Technical Seminar/Dataset" # Change this to your dataset path
+# Use a local dataset directory relative to the project root
+DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "dataset")
+os.makedirs(DATA_PATH, exist_ok=True)
 try:
     # Check if the model exists
     final_model_path = os.path.join(DATA_PATH, "final_model.flax")

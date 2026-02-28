@@ -35,7 +35,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 
-import Logo from './Logo';
+import logo from '../../assets/images/Logo.png';
 import { ModeToggle } from './ui/ThemeToggle';
 
 interface NavbarProps {
@@ -108,7 +108,8 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <Logo />
+            <img src={logo} alt="AgriVision360" className="h-10 w-10 object-contain" />
+            <span className="font-bold text-xl text-primary">AgriVision360</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

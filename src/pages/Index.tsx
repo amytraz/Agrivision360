@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import MarketplacePreview from '@/components/MarketplacePreview';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import Footer from '@/components/Footer';
 import AuthModal from '@/components/AuthModal';
 import { 
   Dialog,
@@ -34,6 +36,7 @@ const Index = () => {
       <main>
         <Hero onGetStartedClick={handleOpenAuthModal} />
         <Features />
+        <WhyChooseUs />
         <MarketplacePreview />
         
         <section id="contact" className="py-24">
@@ -72,6 +75,7 @@ const Index = () => {
           <ContactForm />
         </DialogContent>
       </Dialog>
+      <Footer />
     </div>
   );
 };
