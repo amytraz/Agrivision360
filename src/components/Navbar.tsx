@@ -35,6 +35,9 @@ import {
   MessageSquare
 } from 'lucide-react';
 
+import Logo from './Logo';
+import { ModeToggle } from './ui/ThemeToggle';
+
 interface NavbarProps {
   onLoginClick?: () => void;
 }
@@ -105,12 +108,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="size-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">A</span>
-            </div>
-            <span className="font-semibold text-xl tracking-tight">
-              AgriVision <span className="text-primary">360</span>
-            </span>
+            <Logo />
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
@@ -196,6 +194,7 @@ const Navbar = ({ onLoginClick }: NavbarProps) => {
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
             </a>
+            <ModeToggle />
           </div>
 
           <button

@@ -27,6 +27,32 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
+import Logo from './Logo';
+import { 
+  Menu, 
+  X, 
+  Home, 
+  CloudRain, 
+  Sprout, 
+  BarChart, 
+  Map, 
+  ShoppingCart, 
+  Activity, 
+  MessageSquare, 
+  Bot, 
+  User 
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
 const DashboardNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -47,12 +73,7 @@ const DashboardNavbar = () => {
     <nav className="bg-background/80 backdrop-blur-md py-3 shadow-sm border-b border-border/50 sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="size-8 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-base">A</span>
-          </div>
-          <span className="font-semibold text-lg tracking-tight">
-            AgriVision <span className="text-primary">360</span>
-          </span>
+          <Logo />
         </Link>
 
         <div className="hidden md:block">
